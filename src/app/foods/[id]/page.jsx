@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 export function generateStaticParams() {
   return [{ id: "52861" }, { id: "52950" }, { id: "53028" }];
@@ -31,13 +32,21 @@ const page = async ({ params }) => {
       {/* Image Section */}
       <div>
         <div className=" rounded-2xl shadow-lg mb-6">
-          <img
+          {/* <img
             src={food.foodImg}
             alt={food.title}
             fill
             className="object-cover"
             priority
-          />
+          /> */}
+          <Image
+            src={food.foodImg}
+            alt={food.title}
+            className="object-cover"
+            priority
+            width={400}
+            height={400}
+          ></Image>
         </div>
 
         <div className="">

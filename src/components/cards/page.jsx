@@ -1,15 +1,23 @@
 import Link from "next/link";
 import AddCardBtn from "../Buttons/AddCardBtn";
+import Image from "next/image";
 
 // FoodCard.jsx
 export default function FoodCard({ food }) {
   return (
     <div className="w-64 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-      <img
+      {/* <img
         src={food.foodImg}
         alt={food.title}
         className="w-full h-40 object-cover"
-      />
+      /> */}
+      <Image
+        src={food.foodImg}
+        alt={food.title}
+        className="w-full h-40 object-cover"
+        width={300}
+        height={40}
+      ></Image>
 
       <div className="p-4">
         <h3 className="text-lg text-black font-semibold">{food.title}</h3>
