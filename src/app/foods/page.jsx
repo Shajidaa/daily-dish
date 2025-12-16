@@ -1,5 +1,6 @@
 import FoodCard from "@/components/cards/page";
 import React from "react";
+import CartItems from "./CartItems";
 
 const getFoods = async () => {
   const res = await fetch(
@@ -19,10 +20,17 @@ export default async function foods() {
         {" "}
         Total Food : <span className="text-amber-500">({foods.length}) </span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-20">
-        {foods.map((food) => (
-          <FoodCard food={food} key={food.id}></FoodCard>
-        ))}
+      <div className="flex  gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-20">
+          {foods.map((food) => (
+            <FoodCard food={food} key={food.id}></FoodCard>
+          ))}
+        </div>
+        <div className="w-[250] rounded-2xl border border-amber-50">
+          <h2 className="text-2xl font-bold text-center py-3">Cart Items</h2>
+          <hr />
+          <CartItems></CartItems>
+        </div>
       </div>
     </div>
   );

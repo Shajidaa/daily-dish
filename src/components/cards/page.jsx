@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AddCardBtn from "../Buttons/AddCardBtn";
 
 // FoodCard.jsx
 export default function FoodCard({ food }) {
@@ -19,10 +20,7 @@ export default function FoodCard({ food }) {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <button className="flex-1 bg-red-500 text-white py-2 rounded-lg text-sm font-medium hover:bg-red-600 transition">
-            Add to Cart
-          </button>
-
+          <AddCardBtn></AddCardBtn>
           <Link
             href={`/foods/${food.id}`}
             className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg text-sm font-medium hover:bg-red-50 transition"
