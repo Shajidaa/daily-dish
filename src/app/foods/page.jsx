@@ -12,11 +12,13 @@ const getFoods = async (search) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   return data.foods || [];
 };
-
+export const metadata = {
+  title: "All foods",
+  description: "healthy food by Daily-dish",
+};
 export default async function foods({ searchParams }) {
   const { search = " " } = await searchParams;
   const foods = await getFoods(search);
-  console.log(foods);
 
   return (
     <div className=" container mx-auto">
