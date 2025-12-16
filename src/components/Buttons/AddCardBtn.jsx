@@ -1,9 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import { CartContext } from "@/context/CartProvider";
+import React, { use, useState } from "react";
 
 const AddCardBtn = () => {
   const [inCart, setInCart] = useState(false);
-  const handleAddToCart = () => {
+  const { addToCart } = use(CartContext);
+  const handleAddToCart = (food) => {
+    addToCart(food);
     setInCart(true);
   };
   return (

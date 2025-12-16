@@ -20,7 +20,7 @@ export default function FoodCard({ food }) {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <AddCardBtn></AddCardBtn>
+          <AddCardBtn food={food}></AddCardBtn>
           <Link
             href={`/foods/${food.id}`}
             className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg text-sm font-medium hover:bg-red-50 transition"
