@@ -26,7 +26,9 @@ export default function RootLayout({ children }) {
         <header className=" bg-amber-900">
           <div className="flex justify-between items-center py-3 container mx-auto">
             <div>
-              <h1 className="text-2xl font-bold">Daily-Dish</h1>{" "}
+              <Link href="/" className="text-2xl font-bold">
+                Daily-Dish
+              </Link>{" "}
             </div>
             <div>
               <Link className="btn mr-5" href={"/foods"}>
