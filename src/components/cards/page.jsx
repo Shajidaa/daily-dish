@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // FoodCard.jsx
 export default function FoodCard({ food }) {
   return (
@@ -21,9 +23,12 @@ export default function FoodCard({ food }) {
             Add to Cart
           </button>
 
-          <button className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg text-sm font-medium hover:bg-red-50 transition">
+          <Link
+            href={`/foods/${food.id}`}
+            className="flex-1 border border-red-500 text-red-500 py-2 rounded-lg text-sm font-medium hover:bg-red-50 transition"
+          >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
