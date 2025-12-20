@@ -5,7 +5,6 @@ import { ObjectId } from "mongodb";
 const feedbackCollection = connect("feedbacks");
 export async function GET(request, { params }) {
   const { id } = await params;
-  console.log(id);
 
   if (id.length !== 24) {
     return Response.json({
@@ -14,9 +13,10 @@ export async function GET(request, { params }) {
     });
   }
   const query = { _id: new ObjectId(id) };
-  const result = feedbackCollection.findOne(query);
+  const result = await feedbackCollection.findOne(query);
   return Response.json(result);
 }
+
 export async function DELETE(request, { params }) {
   const { id } = await params;
   if (id.length != 24) {
@@ -26,9 +26,11 @@ export async function DELETE(request, { params }) {
     });
   }
   const query = { _id: new ObjectId(id) };
-  const result = feedbackCollection.deleteOne(query);
+  const result = await feedbackCollection.deleteOne(query);
+
   return Response.json(result);
 }
+
 export async function PATCH(request, { params }) {
   const { id } = await params;
   const { message } = await request.json();
@@ -44,6 +46,6 @@ export async function PATCH(request, { params }) {
       message,
     },
   };
-  const result = feedbackCollection.updateOne(query, newData);
+  const result = await feedbackCollection.updateOne(query, newData);
   return Response.json(result);
 }
