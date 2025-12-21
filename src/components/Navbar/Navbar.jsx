@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import LoginButton from "../LoginButton";
+import AuthButton from "../Buttons/AuthButton";
 
 const Navbar = () => {
   return (
@@ -24,9 +25,7 @@ const Navbar = () => {
           <Link className="btn" href={"/register"}>
             Register
           </Link>
-          <Link className="btn" href={"/login"}>
-            Login
-          </Link>
+          <AuthButton></AuthButton>
         </div>
       </div>
     </header>

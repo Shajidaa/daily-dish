@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "@/components/Navbar/Navbar";
 import CartProvider from "@/context/CartProvider";
+import NextAuthProvider from "@/provider/NextAuthProvider";
 
 const poppins = Poppins({
   weight: ["400", "500", "600"],
@@ -18,13 +19,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} antialiased `}>
-        <CartProvider>
-          <Navbar></Navbar>
-          {children}
-        </CartProvider>
-      </body>
-    </html>
+    <NextAuthProvider>
+      <html lang="en">
+        <body className={`${poppins.className} antialiased `}>
+          <CartProvider>
+            <Navbar></Navbar>
+            {children}
+          </CartProvider>
+        </body>
+      </html>
+    </NextAuthProvider>
   );
 }
