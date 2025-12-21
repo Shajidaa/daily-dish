@@ -24,8 +24,9 @@ const Navbar = () => {
           <Link className="btn" href={"/register"}>
             Register
           </Link>
-
-          <LoginButton></LoginButton>
+          <Link className="btn" href={"/login"}>
+            Login
+          </Link>
         </div>
       </div>
     </header>
