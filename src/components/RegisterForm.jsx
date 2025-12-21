@@ -1,7 +1,11 @@
 "use client";
 
+import { postUser } from "@/actions/server/auth";
+import { useRouter } from "next/navigation";
+
 const RegisterForm = () => {
-  const handleSubmit = (e) => {
+  const router = useRouter();
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -9,13 +13,15 @@ const RegisterForm = () => {
     const formData = {
       name: form.name.value,
       email: form.email.value,
-      contactNo: form.contactNo.value,
+
       password: form.password.value,
-      image: form.image.value,
-      bloodgroup: form.bloodgroup.value,
     };
 
-    console.log("Submitted Data:", formData);
+    const result = await postUser(formData);
+    if (result.acknowledged) {
+      alert("successful");
+      router.push("/login");
+    }
   };
 
   const inputClass =
@@ -50,7 +56,7 @@ const RegisterForm = () => {
 
         <div className="flex flex-col space-y-1">
           <label>Blood Group</label>
-          <select name="bloodgroup" required className={inputClass}>
+          <select name="bloodgroup" className={inputClass}>
             <option value="">Select</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -72,7 +78,6 @@ const RegisterForm = () => {
             type="tel"
             name="contactNo"
             placeholder="01XXXXXXXXX"
-            required
             className={inputClass}
           />
         </div>

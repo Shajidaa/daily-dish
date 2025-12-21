@@ -1,7 +1,9 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 const AddFeedbackFrom = () => {
+  const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = e.target.feedback.value;
@@ -17,6 +19,7 @@ const AddFeedbackFrom = () => {
 
     if (data.insertedId) {
       alert("success");
+      router.push("/feedback");
     }
   };
   return (

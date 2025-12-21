@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import React from "react";
 export function generateStaticParams() {
   return [{ id: "52861" }, { id: "52950" }, { id: "53028" }];
@@ -24,8 +25,8 @@ const singleFood = async (id) => {
 const page = async ({ params }) => {
   const { id } = await params;
   const food = await singleFood(id);
-  if (!food) {
-    return <p>food not found</p>;
+  if (!food.title) {
+    redirect("/foods");
   }
   return (
     <div className="container mx-auto">
