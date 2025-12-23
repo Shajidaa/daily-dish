@@ -13,6 +13,9 @@ const RegisterForm = () => {
     const formData = {
       name: form.name.value,
       email: form.email.value,
+      bloodgroup: form.bloodgroup.value,
+      contactNo: form.contactNo.value,
+      image: form.image.value,
 
       password: form.password.value,
     };
@@ -56,7 +59,7 @@ const RegisterForm = () => {
 
         <div className="flex flex-col space-y-1">
           <label>Blood Group</label>
-          <select name="bloodgroup" className={inputClass}>
+          <select name="bloodgroup" required className={inputClass}>
             <option value="">Select</option>
             <option value="A+">A+</option>
             <option value="A-">A-</option>
@@ -77,6 +80,7 @@ const RegisterForm = () => {
           <input
             type="tel"
             name="contactNo"
+            required
             placeholder="01XXXXXXXXX"
             className={inputClass}
           />
@@ -100,6 +104,7 @@ const RegisterForm = () => {
         <input
           type="url"
           name="image"
+          required
           placeholder="https://example.com/image.jpg"
           className={inputClass}
         />
